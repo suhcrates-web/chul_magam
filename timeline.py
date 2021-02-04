@@ -57,14 +57,14 @@ def magam(test=False):
             post.do_temp(title=art['title'], article=art['article'])
         time.sleep(1)
 
-# def magam_test():
-#     print("fuck")
-#     magam(test=True)
+def magam_test():
+    print("fuck")
+    magam(test=True)
 
 
 schedule.every().day.at("09:00").do(chulbal)
 schedule.every().day.at("15:30").do(magam)
-# schedule.every().day.at("19:17").do(magam_test)
+schedule.every().day.at("19:49").do(magam_test)
 i=1
 while True:
    i= i+1
