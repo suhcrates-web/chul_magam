@@ -4,6 +4,7 @@ from make_dict import make_dict
 import post
 import schedule
 import time
+from telebot import bot
 
 def chulbal(test=False):
     chul_ma = False
@@ -29,6 +30,8 @@ def chulbal(test=False):
             #2보
             art = article.second_bo(jisu_dict_s=dict_made, chul_ma=chul_ma)
             post.do_temp(title=art['title'], article=art['article'])
+            
+            bot('c' ,"출발 기사 올렸습니다!\n"+"http://testbot.ddns.net:5231/bot_v3")
         time.sleep(1)
 
 def magam(test=False):
@@ -55,6 +58,8 @@ def magam(test=False):
             #2보
             art = article.second_bo(jisu_dict_s=dict_made, chul_ma=chul_ma)
             post.do_temp(title=art['title'], article=art['article'])
+
+            bot('c' ,"마감 기사 올렸습니다!\n"+"http://testbot.ddns.net:5231/bot_v3")
         time.sleep(1)
 
 def magam_test():
