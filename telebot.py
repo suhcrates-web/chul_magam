@@ -10,6 +10,7 @@ def bot(type='p', message = 'None'):
     elif str(port) == '5231':
         cmd = 'o'
 
+
     if type =='c':
         type = cmd #일괄조정 가능
     botter = telegram.Bot('1334671210:AAG9Cfvt8PYb0meZxgH7KKWzNHcVtqTKzts')
