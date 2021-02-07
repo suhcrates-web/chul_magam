@@ -1,0 +1,13 @@
+<!-- RIGHT AREA -->
+<div class="index-jisoo-box">
+<div class="jisoo-top first">
+<h3><img alt="국내지수" src="/kwa/images/hero/title_hero03.png"/></h3>
+<div class="jisoo-top-date">
+<a href="#none" onclick="javascript:goJisu();setTimeout(function() {try {goMainJisu();} catch(e) {}	},500);"><img alt="새로고침" src="/kwa/images/hero/btn_refresh.png"/></a>
+<span>02월 06일 시외종료</span>
+</div>
+</div>
+<div class="jisoo-list">
+<ul>
+<li class="red"><em>KOSPI</em><span class="first">3,120.63 ▲ </span><span class="second">33.08</span><span class="third">1.07%</span></li>
+<li class="red"><em>KOSPI200</em><span 
