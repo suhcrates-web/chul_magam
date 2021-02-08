@@ -11,35 +11,35 @@ def chulbal(test=True):
     while not chul_ma:
         now= datetime.today().strftime(format='%H:%M')
         today = datetime.today().strftime("%Y%m%d")
-        if (now > '9:00' and now < '9:05') | test==True :
-            dict_made = make_dict()['jisu_dict_s']
-            chul_ma = True
 
-            #코스피
-            art = article.kos_pi_daq(jisu_dict_s=dict_made, pi_daq='kospi', chul_ma=chul_ma)
-            post.do_temp(title=art['title'], article=art['article'])
-            post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'11', rm="출발") # c:
-            # 출발 ,
-            # a: 순서
-            print(art['title'])
-            #코스닥
-            art = article.kos_pi_daq(jisu_dict_s=dict_made, pi_daq='kosdaq', chul_ma=chul_ma)
-            post.do_temp(title=art['title'], article=art['article'])
-            post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'12', rm="출발")
+        dict_made = make_dict()['jisu_dict_s']
+        chul_ma = True
 
-            #환율
-            art = article.dol_won(jisu_dict_s=dict_made, chul_ma=chul_ma)
-            post.do_temp(title=art['title'], article=art['article'])
-            post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'13', rm="출발")
+        #코스피
+        art = article.kos_pi_daq(jisu_dict_s=dict_made, pi_daq='kospi', chul_ma=chul_ma)
+        post.do_temp(title=art['title'], article=art['article'])
+        post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'11', rm="출발") # c:
+        # 출발 ,
+        # a: 순서
+        print(art['title'])
+        #코스닥
+        art = article.kos_pi_daq(jisu_dict_s=dict_made, pi_daq='kosdaq', chul_ma=chul_ma)
+        post.do_temp(title=art['title'], article=art['article'])
+        post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'12', rm="출발")
 
-            #2보
-            art = article.second_bo(jisu_dict_s=dict_made, chul_ma=chul_ma)
-            post.do_temp(title=art['title'], article=art['article'])
-            post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'14', rm="출발")
-            
-            bot('c' ,"출발 기사 올렸습니다!\n"+"http://testbot.ddns.net:5231/bot_v3")
-            print('출발')
-        time.sleep(100)
+        #환율
+        art = article.dol_won(jisu_dict_s=dict_made, chul_ma=chul_ma)
+        post.do_temp(title=art['title'], article=art['article'])
+        post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'13', rm="출발")
+
+        #2보
+        art = article.second_bo(jisu_dict_s=dict_made, chul_ma=chul_ma)
+        post.do_temp(title=art['title'], article=art['article'])
+        post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'14', rm="출발")
+
+        bot('c' ,"출발 기사 올렸습니다!\n"+"http://testbot.ddns.net:5231/bot_v3")
+        print('출발')
+
 
 def magam(test=True):
     chul_ma = True
@@ -47,33 +47,31 @@ def magam(test=True):
     while chul_ma:
         now= datetime.today().strftime(format='%H:%M')
         today = datetime.today().strftime("%Y%m%d")
-        if (now > '15:30' and now < '15:35') | test==True :
-            dict_made = make_dict()['jisu_dict_s']
-            chul_ma = False
+        dict_made = make_dict()['jisu_dict_s']
+        chul_ma = False
 
-            #코스피
-            art = article.kos_pi_daq(jisu_dict_s=dict_made, pi_daq='kospi', chul_ma=chul_ma)
-            post.do_temp(title=art['title'], article=art['article'])
-            post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'21', rm="마감")
-            print(art['title'])
-            #코스닥
-            art = article.kos_pi_daq(jisu_dict_s=dict_made, pi_daq='kosdaq', chul_ma=chul_ma)
-            post.do_temp(title=art['title'], article=art['article'])
-            post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'22', rm="마감")
+        #코스피
+        art = article.kos_pi_daq(jisu_dict_s=dict_made, pi_daq='kospi', chul_ma=chul_ma)
+        post.do_temp(title=art['title'], article=art['article'])
+        post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'21', rm="마감")
+        print(art['title'])
+        #코스닥
+        art = article.kos_pi_daq(jisu_dict_s=dict_made, pi_daq='kosdaq', chul_ma=chul_ma)
+        post.do_temp(title=art['title'], article=art['article'])
+        post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'22', rm="마감")
 
-            #환율
-            art = article.dol_won(jisu_dict_s=dict_made, chul_ma=chul_ma)
-            post.do_temp(title=art['title'], article=art['article'])
-            post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'23', rm="마감")
+        #환율
+        art = article.dol_won(jisu_dict_s=dict_made, chul_ma=chul_ma)
+        post.do_temp(title=art['title'], article=art['article'])
+        post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'23', rm="마감")
 
-            #2보
-            art = article.second_bo(jisu_dict_s=dict_made, chul_ma=chul_ma)
-            post.do_temp(title=art['title'], article=art['article'])
-            post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'24', rm="마감")
+        #2보
+        art = article.second_bo(jisu_dict_s=dict_made, chul_ma=chul_ma)
+        post.do_temp(title=art['title'], article=art['article'])
+        post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'24', rm="마감")
 
-            bot('c' ,"마감 기사 올렸습니다!\n"+"http://testbot.ddns.net:5231/bot_v3")
-            print('마감')
-        time.sleep(100)
+        bot('c' ,"마감 기사 올렸습니다!\n"+"http://testbot.ddns.net:5231/bot_v3")
+        print('마감')
 
 def magam_test():
     print("fuck")
@@ -112,4 +110,4 @@ while True:
 
     i= i+1
     time.sleep(1)
-    print(str(now)+' '+i)
+    print(str(now)+' '+str(i))
