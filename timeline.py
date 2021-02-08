@@ -1,6 +1,6 @@
 from datetime import datetime
 import article
-from make_dict import make_dict
+from make_dict import make_dict, magam_check
 import post
 import time
 from telebot import bot
@@ -41,13 +41,13 @@ def chulbal(test=True):
         print('출발')
 
 
-def magam(test=True):
+def magam(test=True, be_0=None):
     chul_ma = True
     test = test
     while chul_ma:
         now= datetime.today().strftime(format='%H:%M')
         today = datetime.today().strftime("%Y%m%d")
-        dict_made = make_dict()['jisu_dict_s']
+        dict_made = make_dict(be_0=be_0)['jisu_dict_s']
         chul_ma = False
 
         #코스피
@@ -81,9 +81,9 @@ def magam_test():
 i=0
 while True:
     now= datetime.today().strftime(format='%H:%M')
-
+    print('here')
     #출발
-    if (now >= "09:01") and (now<="09:05"):
+    if (now >= "09:00") and (now<="09:05"):
         chulbal_done = False
         while not chulbal_done:
             try:
@@ -91,23 +91,24 @@ while True:
                 chulbal_done = True
 
             except:
-                time.sleep(15)
+                time.sleep(3)
 
         time.sleep(600)
-
+    print('here2')
     #마감
 
-    if (now >= "15:31") and (now<="15:50"):
+    if (now >= "15:30") and (now<="20:50"):
         magam_done = False
-        while not magam_done:
-            if make_dict()['magam_ready']:
-                time.sleep(10)
-                magam()
-                magam_done = True
-                time.sleep(1000)
-            else:
-                time.sleep(15)
 
+
+        while not magam_done:
+            #체크한 뒤 html 내놓음.
+            be_0 = magam_check()['be_0']
+            magam(be_0= be_0)
+            magam_done = True
+            time.sleep(1000)
+
+    print('here3')
     i= i+1
     time.sleep(1)
     print(str(now)+' '+str(i))

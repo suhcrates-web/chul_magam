@@ -24,7 +24,7 @@ def do_temp(op=None, title = '제목없음', article = '내용없음', info = '�
         data = data,)
 
 def do_mbot(op='set_disc', title = '((((테스트2)))', article = '내용없음2', rcept_no = None, stock_code='111', corp_cls =
-"None", ori_url = "None", article_cotent_type= "8", category_id = "83", corp_name = None, rm =" "):
+"None", ori_url = "None", article_content_type= "8", category_ids = "211", corp_name = None, rm =" "):
     url = 'http://alpha.news1.kr/ajax/article_api.php'
     today = datetime.today().strftime("%Y%m%d")
     if op=='set_disc':
@@ -44,12 +44,17 @@ def do_mbot(op='set_disc', title = '((((테스트2)))', article = '내용없음2
             "rm" : rm,
             "ori_url" : ori_url,
             "content" : article,
-            "article_cotent_type" : article_cotent_type,
-            "category_id" : category_id
+            "article_content_type" : article_content_type,
+            "category_ids" : category_ids
         }
         requests.post(
             url,
             data = data,)
+
+if __name__ == "__main__":
+    today = datetime.today().strftime("%Y%m%d")
+
+    do_mbot(rcept_no=str(today) +'32')
 
 def do_mbot2(op='제목없음', title = '제목없음', article = '내용없음', rcept_no = None, stock_code='111', corp_cls =
 "None", ori_url = "None", article_cotent_type= "8", category_id = "83", corp_name = None):
@@ -70,6 +75,8 @@ def do_mbot2(op='제목없음', title = '제목없음', article = '내용없음'
     requests.post(
         url,
         data = data,)
+
+
 
 
 def do(op='new_article', title = '제목없음', article = '내용없음', rcept_no = None):
@@ -201,7 +208,3 @@ def do(op='new_article', title = '제목없음', article = '내용없음', rcept
         data = data,)
 
 
-if __name__ == "__main__":
-    today = datetime.today().strftime("%Y%m%d")
-
-    do_mbot(rcept_no=str(today) +'1')
