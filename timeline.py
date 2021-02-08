@@ -18,24 +18,24 @@ def chulbal(test=True):
             #코스피
             art = article.kos_pi_daq(jisu_dict_s=dict_made, pi_daq='kospi', chul_ma=chul_ma)
             post.do_temp(title=art['title'], article=art['article'])
-            post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'0000ca', rm="출발") # c:
+            post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'11', rm="출발") # c:
             # 출발 ,
             # a: 순서
             print(art['title'])
             #코스닥
             art = article.kos_pi_daq(jisu_dict_s=dict_made, pi_daq='kosdaq', chul_ma=chul_ma)
             post.do_temp(title=art['title'], article=art['article'])
-            post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'0000cb', rm="출발")
+            post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'12', rm="출발")
 
             #환율
             art = article.dol_won(jisu_dict_s=dict_made, chul_ma=chul_ma)
             post.do_temp(title=art['title'], article=art['article'])
-            post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'0000cc', rm="출발")
+            post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'13', rm="출발")
 
             #2보
             art = article.second_bo(jisu_dict_s=dict_made, chul_ma=chul_ma)
             post.do_temp(title=art['title'], article=art['article'])
-            post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'0000cd', rm="출발")
+            post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'14', rm="출발")
             
             bot('c' ,"출발 기사 올렸습니다!\n"+"http://testbot.ddns.net:5231/bot_v3")
             print('출발')
@@ -54,22 +54,22 @@ def magam(test=True):
             #코스피
             art = article.kos_pi_daq(jisu_dict_s=dict_made, pi_daq='kospi', chul_ma=chul_ma)
             post.do_temp(title=art['title'], article=art['article'])
-            post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'0000ma', rm="마감")
+            post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'21', rm="마감")
             print(art['title'])
             #코스닥
             art = article.kos_pi_daq(jisu_dict_s=dict_made, pi_daq='kosdaq', chul_ma=chul_ma)
             post.do_temp(title=art['title'], article=art['article'])
-            post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'0000mb', rm="마감")
+            post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'22', rm="마감")
 
             #환율
             art = article.dol_won(jisu_dict_s=dict_made, chul_ma=chul_ma)
             post.do_temp(title=art['title'], article=art['article'])
-            post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'0000mc', rm="마감")
+            post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'23', rm="마감")
 
             #2보
             art = article.second_bo(jisu_dict_s=dict_made, chul_ma=chul_ma)
             post.do_temp(title=art['title'], article=art['article'])
-            post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'0000md', rm="마감")
+            post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'24', rm="마감")
 
             bot('c' ,"마감 기사 올렸습니다!\n"+"http://testbot.ddns.net:5231/bot_v3")
             print('마감')

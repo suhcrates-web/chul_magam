@@ -23,7 +23,7 @@ def do_temp(op=None, title = '제목없음', article = '내용없음', info = '�
         url,
         data = data,)
 
-def do_mbot(op='set_disc', title = '((((테스트)))', article = '내용없음', rcept_no = None, stock_code='111', corp_cls =
+def do_mbot(op='set_disc', title = '((((테스트2)))', article = '내용없음2', rcept_no = None, stock_code='111', corp_cls =
 "None", ori_url = "None", article_cotent_type= "8", category_id = "83", corp_name = None, rm =" "):
     url = 'http://alpha.news1.kr/ajax/article_api.php'
     today = datetime.today().strftime("%Y%m%d")
@@ -202,4 +202,6 @@ def do(op='new_article', title = '제목없음', article = '내용없음', rcept
 
 
 if __name__ == "__main__":
-    print(do_mbot(rcept_no='2021020500083F'))
+    today = datetime.today().strftime("%Y%m%d")
+
+    do_mbot(rcept_no=str(today) +'1')
