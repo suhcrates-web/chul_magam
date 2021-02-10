@@ -27,6 +27,7 @@ def kos_pi_daq(jisu_dict_s=None, pi_daq = None, chul_ma = None):
     return {'title':title, 'article':article}
 
 
+
 def dol_won(jisu_dict_s=None, chul_ma = None):
     if chul_ma:
         st_en = '출발'

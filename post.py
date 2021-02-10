@@ -25,6 +25,13 @@ def do_temp(op=None, title = '제목없음', article = '내용없음', info = '�
 
 def do_mbot(op='set_disc', title = '((((테스트2)))', article = '내용없음2', rcept_no = None, stock_code='111', corp_cls =
 "None", ori_url = "None", article_content_type= "8", category_ids = "211", corp_name = None, rm =" "):
+
+    with open('C:/stamp/port.txt', 'r') as f:
+        port = f.read().split(',')#노트북 5232, 데스크탑 5231
+        port = port[1]  # http://172.30.1.53:5232/bot_v3/
+    if port ==5232:
+        return "집배신엔 안보냄"
+
     url = 'http://alpha.news1.kr/ajax/article_api.php'
     today = datetime.today().strftime("%Y%m%d")
     if op=='set_disc':

@@ -1,6 +1,6 @@
 from datetime import datetime
 import article
-from make_dict import make_dict, magam_check
+from make_dict import make_dict, magam_check, yon_data
 import post
 import time
 from telebot import bot
@@ -27,7 +27,12 @@ def chulbal(test=True):
         post.do_temp(title=art['title'], article=art['article'])
         post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'12', rm="출발")
 
+        bot('c' ,"출발 기사 올렸습니다!\n"+"http://testbot.ddns.net:5231/bot_v3")
+
         #환율
+        dict_made['원/달러'] = yon_data()
+        # print("연합 환율 작성. 1분뒤 업로드")
+        # time.sleep(60)
         art = article.dol_won(jisu_dict_s=dict_made, chul_ma=chul_ma)
         post.do_temp(title=art['title'], article=art['article'])
         post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'13', rm="출발")
@@ -37,7 +42,7 @@ def chulbal(test=True):
         post.do_temp(title=art['title'], article=art['article'])
         post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'14', rm="출발")
 
-        bot('c' ,"출발 기사 올렸습니다!\n"+"http://testbot.ddns.net:5231/bot_v3")
+        bot('c' ,"환율, 2보 올렸습니다!\n"+"http://testbot.ddns.net:5231/bot_v3")
         print('출발')
 
 
@@ -53,24 +58,28 @@ def magam(test=True, be_0=None):
         #코스피
         art = article.kos_pi_daq(jisu_dict_s=dict_made, pi_daq='kospi', chul_ma=chul_ma)
         post.do_temp(title=art['title'], article=art['article'])
-        post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'21', rm="마감")
+        post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'31', rm="마감")
         print(art['title'])
         #코스닥
         art = article.kos_pi_daq(jisu_dict_s=dict_made, pi_daq='kosdaq', chul_ma=chul_ma)
         post.do_temp(title=art['title'], article=art['article'])
-        post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'22', rm="마감")
+        post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'32', rm="마감")
 
+        bot('c' ,"마감 기사 올렸습니다!\n"+"http://testbot.ddns.net:5231/bot_v3")
         #환율
+        dict_made['원/달러'] = yon_data()
+        # print("연합 환율 작성. 1분뒤 업로드")
+        # time.sleep(20)
         art = article.dol_won(jisu_dict_s=dict_made, chul_ma=chul_ma)
         post.do_temp(title=art['title'], article=art['article'])
-        post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'23', rm="마감")
+        post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'33', rm="마감")
 
         #2보
         art = article.second_bo(jisu_dict_s=dict_made, chul_ma=chul_ma)
         post.do_temp(title=art['title'], article=art['article'])
-        post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'24', rm="마감")
+        post.do_mbot(title=art['title'], article=art['article'], rcept_no = str(today) +'34', rm="마감")
 
-        bot('c' ,"마감 기사 올렸습니다!\n"+"http://testbot.ddns.net:5231/bot_v3")
+        bot('c' ,"환율, 2보 올렸습니다!\n"+"http://testbot.ddns.net:5231/bot_v3")
         print('마감')
 
 def magam_test():
@@ -97,16 +106,17 @@ while True:
     print('here2')
     #마감
 
-    if (now >= "15:30") and (now<="20:50"):
+    if (now >= "15:30") and (now<="15:50"):
         magam_done = False
 
 
         while not magam_done:
             #체크한 뒤 html 내놓음.
+
             be_0 = magam_check()['be_0']
             magam(be_0= be_0)
             magam_done = True
-            time.sleep(1000)
+            time.sleep(10000)
 
     print('here3')
     i= i+1
